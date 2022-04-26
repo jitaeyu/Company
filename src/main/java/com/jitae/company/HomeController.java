@@ -26,7 +26,7 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "/login")
 	public String login() {			
-		return "login.jsp";
+		return "login";
 	}
 	
 	@RequestMapping(value = "/index")

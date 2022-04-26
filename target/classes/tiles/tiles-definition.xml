@@ -12,4 +12,19 @@
       <put-attribute name="body" value="/WEB-INF/views/main.jsp" />
    </definition>
    
+   
+   
+   
+   
+   <!--login layout -->
+   <definition name="loginLayout"  template="/WEB-INF/views/login/loginLayout.jsp">
+      <put-attribute name="logintop" value="/WEB-INF/views/login/logintop.jsp" />
+      <put-attribute name="loginbody" value="" />
+      <put-attribute name="loginfooter" value="/WEB-INF/views/login/loginfooter.jsp" />
+   </definition>
+   
+   <definition name="login" extends="loginLayout">   
+      <put-attribute name="loginbody" value="/WEB-INF/views/login/login.jsp" />
+   </definition>
+   
  </tiles-definitions>

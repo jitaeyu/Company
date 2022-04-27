@@ -27,4 +27,8 @@
       <put-attribute name="loginbody" value="/WEB-INF/views/login/login.jsp" />
    </definition>
    
+   <definition name="signin" extends="loginLayout">   
+      <put-attribute name="loginbody" value="/WEB-INF/views/login/signin.jsp" />
+   </definition>
+   
  </tiles-definitions>

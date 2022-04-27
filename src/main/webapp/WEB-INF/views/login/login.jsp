@@ -31,18 +31,20 @@
 	                  <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">로그인</h5>
 	
 	                  <div class="form-outline mb-4">
-	                    <input type="email" id="id" class="form-control form-control-lg" />
-	                    <label class="form-label" for="form2Example17">아이디</label>
+	                  <label class="form-label" for="form2Example17">아이디</label>
+	                    <input type="email" name="id" class="form-control form-control-lg" />
+	                    
 	                  </div>
 	
 	                  <div class="form-outline mb-4">
-	                    <input type="password" id="pw" class="form-control form-control-lg" />
-	                    <label class="form-label" for="form2Example27">비밀번호</label>
+	                  <label class="form-label" for="form2Example27">비밀번호</label>
+	                    <input type="password" name="pw" class="form-control form-control-lg" />
+	                    
 	                  </div>
 	
 	                  <div class="pt-1 mb-4">
 	                    <button style="display: inline;" class="btn btn-dark btn-lg btn-block" type="button">Login</button>
-	  					<p style="display: inline; margin-left: 5em" class="mb-5 pb-lg-2" style="color: #393f81;">회원가입 <a href="#!"
+	  					<p style="display: inline; margin-left: 5em" class="mb-5 pb-lg-2" style="color: #393f81;">회원가입 <a href="signin"
 	                      style="color: #393f81;">HERE</a></p>
 	                  </div>
 	                </form>

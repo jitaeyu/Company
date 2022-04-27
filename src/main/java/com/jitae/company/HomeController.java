@@ -1,10 +1,15 @@
 package com.jitae.company;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
@@ -58,6 +63,25 @@ public class HomeController {
 		Mapper dao = sqlSession.getMapper(Mapper.class);
 		dao.newsign(id,pw,name,team,joindate,jobgrade);
 		return "login";
+	}
+	@RequestMapping(value = "userlogin")
+	public String userlogin(HttpServletRequest request,HttpServletResponse response,Model model) throws IOException {
+		String id = request.getParameter("id");
+		String pw = request.getParameter("pw");
+		Mapper dao = sqlSession.getMapper(Mapper.class);
+		ArrayList<UserDTO> userinfo = dao.login(id,pw);
+		HttpSession hs = request.getSession(true); 
+		if(userinfo.isEmpty()) {
+			PrintWriter out = response.getWriter();
+			response.setContentType("text/html; charset=UTF-8");
+			out.println("<script>alert('로그인 실패. 다시 시도해주세요.');</script>");
+			out.flush();
+			return "login";
+		}
+		else {
+			hs.setAttribute("userinfo", userinfo);
+			return "main";
+		}
 	}
 	
 	

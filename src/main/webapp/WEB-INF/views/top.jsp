@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="s"%>
     <jsp:include page="cdn.jsp"></jsp:include>
 <!DOCTYPE html>
 <html>
@@ -15,24 +16,71 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarColor01">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-        </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      
+        <s:forEach items="${userinfo}" var="team">
+		<s:choose>
+			<s:when test="${team.team eq '개발'}">
+		        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+		          <li class="nav-item">
+		            <a class="nav-link active" aria-current="page" href="#">개발팀 게시판</a>
+		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link active" aria-current="page" href="#">개발팀 휴가일정</a>
+		          </li>
+		        </ul>
+        	</s:when>
+        	<s:when test="${team.team eq '마케팅'}">
+		        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+		          <li class="nav-item">
+		            <a class="nav-link active" aria-current="page" href="#">마케팅팀 게시판</a>
+		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link active" aria-current="page" href="#">마케팅팀 휴가일정</a>
+		          </li>
+		        </ul>
+        	</s:when>
+        	<s:when test="${team.team eq '인사'}">
+		        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+		          <li class="nav-item">
+		            <a class="nav-link active" aria-current="page" href="#">인사팀 게시판</a>
+		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link active" aria-current="page" href="#">인사팀 휴가일정</a>
+		          </li>
+		        </ul>
+        	</s:when>
+        	<s:when test="${team.team eq '디자인'}">
+		        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+		          <li class="nav-item">
+		            <a class="nav-link active" aria-current="page" href="#">디자인팀 게시판</a>
+		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link active" aria-current="page" href="#">디자인팀 휴가일정</a>
+		          </li>
+		        </ul>
+        	</s:when>
+        	<s:when test="${team.team eq '기타'}">
+		        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+		          <li class="nav-item">
+		            <a class="nav-link active" aria-current="page" href="#">외주팀 게시판</a>
+		          </li>
+		           <li class="nav-item">
+		            <a class="nav-link active" aria-current="page" href="#">외주팀 휴가일정</a>
+		          </li>
+		        </ul>
+        	</s:when>
+        </s:choose>
+      </s:forEach>
+        <span class="d-flex">
+          
+          <s:forEach items="${userinfo}" var="user">
+         		 <span style="color: white;" class="me-2">
+          				${user.name}&nbsp;<span>${user.jobgrade}님 환영합니다.</span>
+          	         </span>
+          </s:forEach>
+ 
           <button class="btn btn-outline-light" type="submit">Search</button>
-        </form>
+        </span>
       </div>
     </div>
   </nav>

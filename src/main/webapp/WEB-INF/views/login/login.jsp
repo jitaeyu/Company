@@ -21,8 +21,7 @@
 	            <div class="col-md-6 col-lg-7 d-flex align-items-center">
 	              <div class="card-body p-4 p-lg-5 text-black">
 	
-	                <form>
-	
+	                <form action="userlogin" method="post">
 	                  <div class="d-flex align-items-center mb-3 pb-1">
 	                    <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
 	                    <span class="h1 fw-bold mb-0">XX컴퍼니</span>
@@ -32,20 +31,19 @@
 	
 	                  <div class="form-outline mb-4">
 	                  <label class="form-label" for="form2Example17">아이디</label>
-	                    <input type="email" name="id" class="form-control form-control-lg" />
+	                    <input name="id" class="form-control form-control-lg" />
 	                    
 	                  </div>
 	
 	                  <div class="form-outline mb-4">
 	                  <label class="form-label" for="form2Example27">비밀번호</label>
 	                    <input type="password" name="pw" class="form-control form-control-lg" />
-	                    
 	                  </div>
 	
 	                  <div class="pt-1 mb-4">
-	                    <button style="display: inline;" class="btn btn-dark btn-lg btn-block" type="button">Login</button>
-	  					<p style="display: inline; margin-left: 5em" class="mb-5 pb-lg-2" style="color: #393f81;">회원가입 <a href="signin"
-	                      style="color: #393f81;">HERE</a></p>
+	                    <button style="display: inline;" class="btn btn-dark btn-lg btn-block" type="submit">Login</button>
+	  					<p style="display: inline; margin-left: 5em" class="mb-5 pb-lg-2" style="color: #393f81;">회원가입 
+	  					<a style="color: #393f81;" href="signin" >클릭</a></p>
 	                  </div>
 	                </form>
 	

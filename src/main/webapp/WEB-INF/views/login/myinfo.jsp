@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <jsp:include page="cdn.jsp"></jsp:include>
 <!DOCTYPE html>
 <html>
@@ -20,31 +21,31 @@
 	            </div>
 	            <div class="col-md-6 col-lg-7 d-flex align-items-center">
 	              <div class="card-body p-2 p-lg-2 text-black">
-	
-	                <form action="newsign" method="post">
+	<c:forEach items="${myinfo}" var="my">
+	                <form action="modifymyinfo" method="post">
 
-	                  <div align="center"  class="h2 fw-bold mb-0">회원가입</div>
+	                  <div align="center"  class="h5 fw-bold mb-0">내정보 수정</div>
 	                  
 	
 	                  <div class="form-outline mb-1">
 	                  	<label class="form-label" for="form2Example17">아이디</label>
-	                    <input name="id" class="form-control form-control-sm" />   
+	                    <input name="id" class="form-control form-control-sm" value="${my.id}" readonly="readonly"/>   
 	                  </div>
 	
 	                  <div class="form-outline mb-1">
 	                  	<label class="form-label" for="form2Example27">비밀번호</label>
-	                    <input type="password" name="pw" class="form-control form-control-sm" />
+	                    <input type="password" name="pw" class="form-control form-control-sm" value="${my.pw}"/>
 	                  </div>
 	                  
 	                  <div class="form-outline mb-1">
 	                    <label class="form-label" for="form2Example27">이름</label>
-	                    <input  name="name" class="form-control form-control-sm" />
+	                    <input  name="name" class="form-control form-control-sm" value="${my.name}" />
 	                  </div>
 	                  
 	                  <div class="form-outline mb-1">
 	                  	<label class="form-label" for="form2Example27">부서</label>
 	                    <select  name="team" class="form-control form-control-sm" >
-	                    	<option value="">부서선택</option>
+	                    	<option value="${my.team}" selected="selected">현재부서&nbsp;${my.team}</option>
 						    <option value="개발">개발</option>
 						    <option value="마케팅">마케팅</option>
 						    <option value="인사">인사</option>
@@ -55,13 +56,13 @@
 	                  
 	                  <div class="form-outline mb-1">
 	                   <label class="form-label" for="form2Example27">입사 년도</label>
-	                   <input type="date" name="joindate" class="form-control form-control-sm" />
+	                   <input type="date" name="joindate" class="form-control form-control-sm" value="${my.joindate}"/>
 	                  </div>
 	                  
 	                  <div class="form-outline mb-1">
 		                  <label class="form-label" for="form2Example27">직급</label>
 		                  <select  name="jobgrade" class="form-control form-control-sm" >
-		                    <option value="">직급선택</option>
+		                    <option value="${my.jobgrade}">현재직급&nbsp;${my.jobgrade}</option>
 							<option value="사원">사원</option>
 							<option value="대리">대리</option>
 							<option value="팀장">팀장</option>
@@ -73,15 +74,15 @@
 	                    
 	                    <div class="form-outline mb-1">
 		                   <label class="form-label" for="form2Example27">전화번호</label>
-		                   <input type="tel" name="phone" class="form-control form-control-sm" />
+		                   <input type="tel" name="phone" class="form-control form-control-sm" value="${my.phone}"/>
 	                	 </div>
 	                
 	                  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-	                  <input class="btn btn-danger mt-3" type="button" onclick="location.href='login'" value="취소">
-	                  <input class="btn btn-dark mt-3" type="submit" value="가입">
+	                  <input class="btn btn-danger mt-3" type="button" onclick="history.back()" value="취소">
+	                  <input class="btn btn-dark mt-3" type="submit" value="수정완료">
 	                  </div>
 	                </form>
-	
+	</c:forEach>
 	              </div>
 	            </div>
 	          </div>

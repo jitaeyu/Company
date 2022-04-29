@@ -60,12 +60,13 @@ public class HomeController {
 		String team=request.getParameter("team");
 		String joindate=request.getParameter("joindate");
 		String jobgrade=request.getParameter("jobgrade");
+		String phone=request.getParameter("phone");
 		Mapper dao = sqlSession.getMapper(Mapper.class);
-		dao.newsign(id,pw,name,team,joindate,jobgrade);
+		dao.newsign(id,pw,name,team,joindate,jobgrade,phone);
 		return "login";
 	}
 	@RequestMapping(value = "userlogin")
-	public String userlogin(HttpServletRequest request,HttpServletResponse response,Model model) throws IOException {
+	public String userlogin(HttpServletRequest request,HttpServletResponse response) throws IOException {
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 		Mapper dao = sqlSession.getMapper(Mapper.class);
@@ -84,6 +85,31 @@ public class HomeController {
 		}
 	}
 	
+	
+	@RequestMapping(value = "/myinfo")
+	public String myinfo(HttpServletRequest request,Model model) {
+		String id = request.getParameter("id");
+		Mapper dao = sqlSession.getMapper(Mapper.class);
+		ArrayList<UserDTO> myinfo = dao.myinfo(id);
+		model.addAttribute("myinfo", myinfo);
+		return "myinfo";
+
+	}
+	
+	@RequestMapping(value = "/modifymyinfo")
+	public String modifymyinfo(HttpServletRequest request) {	
+		String id=request.getParameter("id");
+		String pw=request.getParameter("pw");
+		String name=request.getParameter("name");
+		String team=request.getParameter("team");
+		String joindate=request.getParameter("joindate");
+		String jobgrade=request.getParameter("jobgrade");
+		String phone=request.getParameter("phone");
+		Mapper dao = sqlSession.getMapper(Mapper.class);
+		dao.modifymyinfo(pw,name,team,joindate,jobgrade,phone,id);
+		
+		return "redirect:userlogin?id="+id+"&pw="+pw;
+	}
 	
 	
 }

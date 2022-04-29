@@ -1,14 +1,14 @@
 package com.jitae.company;
 
 public class UserDTO {
-	String id,pw,name,team,joindate,jobgrade;
+	String id,pw,name,team,joindate,jobgrade,phone;
 
 	public UserDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public UserDTO(String id, String pw, String name, String team, String joindate, String jobgrade) {
+	public UserDTO(String id, String pw, String name, String team, String joindate, String jobgrade, String phone) {
 		super();
 		this.id = id;
 		this.pw = pw;
@@ -16,6 +16,7 @@ public class UserDTO {
 		this.team = team;
 		this.joindate = joindate;
 		this.jobgrade = jobgrade;
+		this.phone = phone;
 	}
 
 	public String getId() {
@@ -65,6 +66,15 @@ public class UserDTO {
 	public void setJobgrade(String jobgrade) {
 		this.jobgrade = jobgrade;
 	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
 	
 	
 }

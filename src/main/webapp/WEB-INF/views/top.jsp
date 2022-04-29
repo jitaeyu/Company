@@ -77,9 +77,12 @@
          		 <span style="color: white;" class="me-2">
           				${user.name}&nbsp;<span>${user.jobgrade}님 환영합니다.</span>
           	         </span>
-          </s:forEach>
+          
  
-          <button class="btn btn-outline-light" type="submit">Search</button>
+          <button class="btn btn-outline-light" onclick="location.href='myinfo?id=${user.id}'" >내정보 수정</button>
+       		
+       		<button class="btn btn-outline-light"  onclick="location.href='login'" >로그아웃</button>
+        </s:forEach>
         </span>
       </div>
     </div>

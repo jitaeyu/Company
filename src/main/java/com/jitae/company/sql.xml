@@ -3,10 +3,19 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jitae.company.Mapper">
 	<insert id="newsign">
-		insert into company_user values(#{param1},#{param2},#{param3},#{param4},#{param5},#{param6})
+		insert into company_user values(#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7})
 	</insert>
 
 	<select id="login" resultType="com.jitae.company.UserDTO">
 		select * from company_user where id = #{param1} and pw = #{param2}
 	</select>
+	
+	<select id="myinfo" resultType="com.jitae.company.UserDTO">
+		select * from company_user where id = #{param1}
+	</select>
+	
+	<update id="modifymyinfo">
+		update company_user set pw = #{param1},name=#{param2},team=#{param3},joindate=#{param4},jobgrade=#{param5},phone=#{param6} where id = #{param7}
+	
+	</update>
 </mapper>

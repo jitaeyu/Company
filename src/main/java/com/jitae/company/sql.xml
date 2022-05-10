@@ -18,4 +18,23 @@
 		update company_user set pw = #{param1},name=#{param2},team=#{param3},joindate=#{param4},jobgrade=#{param5},phone=#{param6} where id = #{param7}
 	
 	</update>
+	
+	
+	
+	
+
+
+	<select id="calenList" resultType="com.jitae.company.Calendar">
+		SELECT id, title, 
+		TO_char(start1, 'YYYY-MM-DD"T"HH24:MI:SS') start1, 
+		TO_char(end1, 'YYYY-MM-DD"T"HH24:MI:SS') end1, ALLDAY, 
+		TEXTCOLOR, 
+		BACKGROUNDCOLOR, 
+		BORDERCOLOR FROM CALENDAR
+
+	</select>
+
+	
+	
+	
 </mapper>

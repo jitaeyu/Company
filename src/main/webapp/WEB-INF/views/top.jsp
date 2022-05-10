@@ -25,7 +25,7 @@
 		            <a class="nav-link active" aria-current="page" href="#">개발팀 게시판</a>
 		          </li>
 		          <li class="nav-item">
-		            <a class="nav-link active" aria-current="page" href="#">개발팀 휴가일정</a>
+		            <a class="nav-link active" aria-current="page" href="calendar?id=${team.id}">개발팀 휴가일정</a>
 		          </li>
 		        </ul>
         	</s:when>

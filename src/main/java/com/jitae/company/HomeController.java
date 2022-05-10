@@ -52,6 +52,8 @@ public class HomeController {
 		return "signin";
 	}
 	
+	
+	
 	@RequestMapping(value = "/newsign")
 	public String newsing(HttpServletRequest request) {	
 		String id=request.getParameter("id");
@@ -110,6 +112,27 @@ public class HomeController {
 		
 		return "redirect:userlogin?id="+id+"&pw="+pw;
 	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	@RequestMapping(value = "/calendar")
+	public String calendar(HttpServletRequest request,Model model) {
+//		String id = request.getParameter("id");
+		Mapper dao = sqlSession.getMapper(Mapper.class);
+		ArrayList<Calendar> calenlist = dao.calenList();
+		System.out.println("here");
+		System.out.println(calenlist.size());
+		model.addAttribute("list", calenlist);
+		return "calendar";
+
+	}
+	
 	
 	
 }

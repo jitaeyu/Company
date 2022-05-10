@@ -12,6 +12,10 @@
       <put-attribute name="body" value="/WEB-INF/views/main.jsp" />
    </definition>
    
+   <definition name="calendar" extends="baseLayout">   
+      <put-attribute name="body" value="/WEB-INF/views/fullcalendarlib/fullcalendar/selectable.jsp" />
+   </definition>
+   
    
    
    
@@ -34,5 +38,7 @@
    <definition name="myinfo" extends="loginLayout">   
       <put-attribute name="loginbody" value="/WEB-INF/views/login/myinfo.jsp" />
    </definition>
+   
+   
    
  </tiles-definitions>
